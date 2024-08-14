@@ -1,4 +1,11 @@
-import { Teacher, Directors, printTeacher, printTeacherFunction } from "./main";
+import {
+  Teacher,
+  Directors,
+  printTeacher,
+  printTeacherFunction,
+  StudentClass,
+  Student,
+} from "./main";
 
 // should print
 // Object
@@ -59,6 +66,60 @@ describe("printTeacherFunction type", () => {
     const printTeacherFunc: printTeacherFunction = printTeacher;
     const expectedOutput = "J. Doe";
     const result = printTeacherFunc("John", "Doe");
+
+    expect(result).toBe(expectedOutput);
+  });
+});
+
+// should print
+// Object
+// firstName: "John"
+// lastName: "Doe"
+
+describe("StudentClass class", () => {
+  test("should create student objects correctly", () => {
+    const student1: StudentClass = new StudentClass("John", "Doe");
+
+    console.log(student1);
+  });
+});
+
+// should print "Currently working"
+describe("Student interface", () => {
+  test("should print the result of working on homework", () => {
+    const student: Student = {
+      firstName: "John",
+      lastName: "Doe",
+      workOnHomework() {
+        return "Currently working";
+      },
+      displayName() {
+        return this.firstName;
+      },
+    };
+
+    const result = student.workOnHomework();
+
+    expect(result).toBe("Currently working");
+  });
+});
+
+// should print "John"
+describe("Student interface", () => {
+  test("should print the first name of a student", () => {
+    const student: Student = {
+      firstName: "John",
+      lastName: "Doe",
+      workOnHomework() {
+        return "Currently working";
+      },
+      displayName() {
+        return this.firstName;
+      },
+    };
+
+    const expectedOutput = "John";
+    const result = student.displayName();
 
     expect(result).toBe(expectedOutput);
   });
