@@ -1,4 +1,4 @@
-import { Teacher, Directors } from "./main";
+import { Teacher, Directors, printTeacher, printTeacherFunction } from "./main";
 
 // should print
 // Object
@@ -40,5 +40,26 @@ describe("Teacher interface", () => {
       numberOfReports: 17,
     };
     console.log(director1);
+  });
+});
+
+// should print "John Doe"
+describe("printTeacher function", () => {
+  test("should print the full name of a teacher", () => {
+    const expectedOutput = "J. Doe";
+    const result = printTeacher("John", "Doe");
+
+    expect(result).toBe(expectedOutput);
+  });
+});
+
+// should print "John Doe"
+describe("printTeacherFunction type", () => {
+  test("should print the full name of a teacher using the printTeacherFunction type", () => {
+    const printTeacherFunc: printTeacherFunction = printTeacher;
+    const expectedOutput = "J. Doe";
+    const result = printTeacherFunc("John", "Doe");
+
+    expect(result).toBe(expectedOutput);
   });
 });
