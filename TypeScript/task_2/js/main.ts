@@ -46,4 +46,24 @@ function createEmployee(salary: number | string): Director | Teacher {
   }
 }
 
-export { DirectorInterface, TeacherInterface, Director, Teacher, createEmployee };
+function isDirector(employee: Director | Teacher): employee is Director {
+  return employee instanceof Director;
+}
+
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+export {
+  DirectorInterface,
+  TeacherInterface,
+  Director,
+  Teacher,
+  createEmployee,
+  isDirector,
+  executeWork,
+};
