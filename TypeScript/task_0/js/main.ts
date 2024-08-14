@@ -25,18 +25,19 @@ const table = document.createElement("table");
 const tbody = document.createElement("tbody");
 
 studentsList.forEach((student) => {
-  const row = document.createElement("tr");
+  const ligne = document.createElement("tr");
+  const cellFirstname = document.createElement("td");
+  const cellLocation = document.createElement("td");
 
-  const firstNameCell = document.createElement("td");
-  firstNameCell.textContent = student.firstName;
-  row.appendChild(firstNameCell);
+  cellFirstname.textContent = student.firstName;
+  cellLocation.textContent = student.location;
 
-  const locationCell = document.createElement("td");
-  locationCell.textContent = student.location;
-  row.appendChild(locationCell);
-
-  tbody.appendChild(row);
+  ligne.appendChild(cellFirstname);
+  ligne.appendChild(cellLocation);
+  tbody.appendChild(ligne);
 });
 
 table.appendChild(tbody);
 document.body.appendChild(table);
+
+export default Student;
