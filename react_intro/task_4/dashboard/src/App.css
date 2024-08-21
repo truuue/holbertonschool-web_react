@@ -1,0 +1,78 @@
+/* Reset css */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global font style */
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Header */
+.App-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+}
+
+.App-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 5px solid #d03d50;
+}
+
+.App-title {
+  color: #e1354b;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.App-logo {
+  height: 30vh;
+  pointer-events: none;
+}
+
+/* Body */
+.App-body {
+  height: 62vh;
+  margin: 50px 0 0 50px;
+}
+
+.App-body-text {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.App-body-login {
+  margin: 10px 0;
+}
+
+.App-body-login input {
+  margin: 0 10px;
+}
+
+.App-body-login button {
+  padding: 0 5px;
+}
+
+/* Footer */
+.App-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 5px solid #d03d50;
+  height: 8vh;
+}
+
+.App-footer-text {
+  font-weight: 500;
+  font-size: 1.2rem;
+  font-style: italic;
+}
