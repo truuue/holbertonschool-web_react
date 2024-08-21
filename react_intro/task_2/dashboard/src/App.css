@@ -9,7 +9,7 @@
 
 /* Global font style */
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Header */
@@ -51,31 +51,15 @@ html {
 }
 
 .App-body-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
+  margin: 10px 0;
 }
 
 .App-body-login input {
-  margin: 10px 0;
-  padding: 5px;
-  width: 200px;
-  border: 1px solid #d03d50;
-  border-radius: 5px;
+  margin: 0 10px;
 }
 
 .App-body-login button {
-  margin: 10px 0;
-  padding: 5px;
-  width: 200px;
-  background-color: #d03d50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 0 5px;
 }
 
 /* Footer */
