@@ -1,44 +1,49 @@
-import React from "react";
 import { StyleSheet, css } from "aphrodite";
 
 function Login() {
   return (
-    <div className={css(styles.login)}>
-      <p>Login to access the full dashboard</p>
-      <label htmlFor="email">Email:</label>
-      <input type="email" id="email" className={css(styles.loginInput)} />
-      <label htmlFor="password">Password:</label>
-      <input type="password" id="password" className={css(styles.loginInput)} />
-      <button>OK</button>
-    </div>
+    <>
+      <form className={css(styles.login)}>
+        <label className={css(styles.label)}>
+          Email:
+          <input
+            type="email"
+            autoComplete="email"
+            className={css(styles.input)}
+          />
+        </label>
+        <label className={css(styles.label)}>
+          Password:
+          <input type="password" className={css(styles.input)} />
+        </label>
+        <button type="button" className={css(styles.button)}>
+          Ok
+        </button>
+      </form>
+    </>
   );
 }
 
-const screenSize = {
-  small: "@media screen and (max-width: 900px)",
-};
-
 const styles = StyleSheet.create({
   login: {
-    margin: "50px",
-    flexGrow: 1,
-    [screenSize.small]: {
-      marginTop: "10px",
-      marginLeft: 0,
-      marginRight: 0,
-      marginBottom: 0,
+    display: "flex",
+    "@media (max-width: 900px)": {
+      flexDirection: "column",
     },
   },
-
-  loginInput: {
-    marginLeft: "10px",
-    marginRight: "20px",
-    [screenSize.small]: {
-      display: "block",
-      marginLeft: 0,
-      marginTop: "10px",
-      marginBottom: "10px",
+  label: {
+    display: "inline-flex",
+    alignItems: "center",
+    "@media (max-width: 900px)": {
+      marginBottom: ".25rem",
     },
+  },
+  input: {
+    margin: "0 .5rem",
+    flexGrow: 1,
+  },
+  button: {
+    width: "fit-content",
   },
 });
 
