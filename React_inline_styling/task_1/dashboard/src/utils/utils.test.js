@@ -1,4 +1,6 @@
 import * as utils from "./utils";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("getFullYear()", () => {
   it("returns the correct year", () => {

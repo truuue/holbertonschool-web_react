@@ -1,5 +1,7 @@
 import { shallow } from "enzyme";
 import Notifications from "./Notifications";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<Notifications />", () => {
   let wrapper;

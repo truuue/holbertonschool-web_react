@@ -1,5 +1,7 @@
 import { shallow } from "enzyme";
 import App from "./App";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<App />", () => {
   let wrapper;

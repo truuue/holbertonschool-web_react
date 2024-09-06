@@ -9,7 +9,6 @@ import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBot
 import BodySection from "../BodySection/BodySection";
 import { getLatestNotification } from "../utils/utils";
 import { StyleSheet, css } from "aphrodite";
-
 class App extends React.Component {
   static propTypes = {
     isLoggedIn: PropTypes.bool,
@@ -93,7 +92,6 @@ class App extends React.Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   app: {
     fontFamily: "Arial, Helvetica, sans-serif",

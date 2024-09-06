@@ -1,6 +1,8 @@
 import { shallow } from "enzyme";
 import WithLogging from "./WithLogging";
 import Login from "../Login/Login";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("HOC WithLogging", () => {
   it("logs correctly on mount and mount with pure HTML", () => {

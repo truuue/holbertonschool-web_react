@@ -1,5 +1,7 @@
 import { shallow } from "enzyme";
 import CourseList from "./CourseList";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<CourseList />", () => {
   let wrapper;

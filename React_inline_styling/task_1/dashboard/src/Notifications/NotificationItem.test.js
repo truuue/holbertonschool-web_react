@@ -1,5 +1,7 @@
 import { shallow } from "enzyme";
 import NotificationItem from "./NotificationItem";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<NotificationItem />", () => {
   it("renders without crashing", () => {

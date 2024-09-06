@@ -1,5 +1,7 @@
 import { shallow } from "enzyme";
 import CourseListRow from "./CourseListRow";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<CourseListRow />", () => {
   describe("isHeader = true", () => {

@@ -1,5 +1,7 @@
 import Footer from "./Footer";
 import { shallow } from "enzyme";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<Footer />", () => {
   it("renders without crashing", () => {

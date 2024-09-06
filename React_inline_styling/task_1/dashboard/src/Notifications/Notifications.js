@@ -40,8 +40,7 @@ class Notifications extends React.Component {
 
     return (
       <>
-        <div className={css(styles.menuItem)}>Your notifications</div>
-        {this.props.displayDrawer && (
+        {this.props.displayDrawer ? (
           <div className={css(styles.notifications)}>
             <button
               type="button"
@@ -51,12 +50,9 @@ class Notifications extends React.Component {
             >
               x
             </button>
-            <ul>
+            <ul className={css(styles.ul)}>
               {notificationItems.length ? (
-                <>
-                  <p>Here is the list of notifications</p>
-                  {notificationItems}
-                </>
+                <></>
               ) : (
                 <NotificationItem
                   type="default"
@@ -65,16 +61,49 @@ class Notifications extends React.Component {
               )}
             </ul>
           </div>
+        ) : (
+          <div className={css(styles.menuItem)}>Your notifications</div>
         )}
       </>
     );
   }
 }
 
+const opacityAnimation = {
+  from: {
+    opacity: 0.5,
+  },
+  to: {
+    opacity: 1,
+  },
+};
+
+const bouncingAnimation = {
+  "0%": {
+    transform: "translateY(0px)",
+  },
+  "15%": {
+    transform: "translateY(-5px)",
+  },
+  "45%": {
+    transform: "translateY(5px)",
+  },
+  "60%": {
+    transform: "translateY(0px)",
+  },
+};
+
 const styles = StyleSheet.create({
   menuItem: {
     position: "absolute",
     right: "1rem",
+    backgroundColor: "#fff8f8",
+    cursor: "pointer",
+    ":hover": {
+      animationName: [opacityAnimation, bouncingAnimation],
+      animationDuration: "1s, .5s",
+      animationIterationCount: "3",
+    },
   },
   notifications: {
     border: "2px dotted #e0354b",

@@ -1,5 +1,7 @@
 import Header from "./Header";
 import { shallow } from "enzyme";
+import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<Header />", () => {
   it("renders without crashing", () => {
