@@ -1,28 +1,37 @@
-import React from "react";
 import { StyleSheet, css } from "aphrodite";
 
 function Login() {
   return (
-    <div className={css(styles.login)}>
-      <p>Login to access the full dashboard</p>
-      <label htmlFor="email">Email:</label>
-      <input type="email" id="email" className={css(styles.loginInput)} />
-      <label htmlFor="password">Password:</label>
-      <input type="password" id="password" className={css(styles.loginInput)} />
-      <button>OK</button>
-    </div>
+    <>
+      <form className={css(styles.login)}>
+        <label className={css(styles.label)}>
+          Email:
+          <input
+            type="email"
+            autoComplete="email"
+            className={css(styles.input)}
+          />
+        </label>
+        <label className={css(styles.label)}>
+          Password:
+          <input type="password" className={css(styles.input)} />
+        </label>
+        <button type="button">Ok</button>
+      </form>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   login: {
-    margin: "50px",
-    flexGrow: 1,
+    display: "flex",
   },
-
-  loginInput: {
-    marginLeft: "10px",
-    marginRight: "20px",
+  label: {
+    display: "inline-flex",
+    alignItems: "center",
+  },
+  input: {
+    margin: "0 .5rem",
   },
 });
 

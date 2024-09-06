@@ -1,15 +1,21 @@
-import React, { Component } from "react";
-import NotificationItem from "./NotificationItem";
+import React from "react";
 import PropTypes from "prop-types";
+import NotificationItem from "./NotificationItem";
 import NotificationItemShape from "./NotificationItemShape";
-import closeIcon from "../assets/close-icon.png";
 import { StyleSheet, css } from "aphrodite";
 
-class Notifications extends Component {
-  constructor(props) {
-    super(props);
-    this.markAsRead = this.markAsRead.bind(this);
-  }
+class Notifications extends React.Component {
+  static propTypes = {
+    displayDrawer: PropTypes.bool,
+    listNotifications: PropTypes.arrayOf(
+      PropTypes.shape(NotificationItemShape)
+    ),
+  };
+
+  static defaultProps = {
+    displayDrawer: false,
+    listNotifications: [],
+  };
 
   shouldComponentUpdate(nextProps) {
     return (
@@ -22,47 +28,41 @@ class Notifications extends Component {
   }
 
   render() {
-    const { displayDrawer, listNotifications } = this.props;
+    const notificationItems = this.props.listNotifications.map((item) => (
+      <NotificationItem
+        type={item.type}
+        value={item.value}
+        html={item.html}
+        key={item.id}
+        markAsRead={this.markAsRead.bind(this, item.id)}
+      />
+    ));
+
     return (
       <>
-        <div className={css(styles.menuItem)} id="menuItem">
-          <p>Your notifications</p>
-        </div>
-        {displayDrawer && (
-          <div className={css(styles.notifications)} id="Notifications">
+        <div className={css(styles.menuItem)}>Your notifications</div>
+        {this.props.displayDrawer && (
+          <div className={css(styles.notifications)}>
             <button
-              style={{
-                background: "transparent",
-                border: "none",
-                position: "absolute",
-                right: 20,
-              }}
-              aria-label="close"
+              type="button"
+              aria-label="Close"
+              className={css(styles.closeBtn)}
+              onClick={() => console.log("Close button has been clicked")}
             >
-              <img
-                src={closeIcon}
-                alt="close-icon"
-                className={css(styles.notificationsButtonImage)}
-              />
+              x
             </button>
-            <p className={css(styles.notificationsP)}>
-              Here is the list of notifications
-            </p>
             <ul>
-              {listNotifications.length === 0 && (
-                <NotificationItem value="No new notification for now" />
-              )}
-
-              {listNotifications.map((notification) => (
+              {notificationItems.length ? (
+                <>
+                  <p>Here is the list of notifications</p>
+                  {notificationItems}
+                </>
+              ) : (
                 <NotificationItem
-                  key={notification.id}
-                  id={notification.id}
-                  type={notification.type}
-                  value={notification.value}
-                  html={notification.html}
-                  markAsRead={this.markAsRead}
+                  type="default"
+                  value="No new notification for now"
                 />
-              ))}
+              )}
             </ul>
           </div>
         )}
@@ -71,39 +71,28 @@ class Notifications extends Component {
   }
 }
 
-Notifications.defaultProps = {
-  displayDrawer: false,
-  listNotifications: [],
-};
-
-Notifications.propTypes = {
-  displayDrawer: PropTypes.bool,
-  listNotifications: PropTypes.arrayOf(NotificationItemShape),
-};
-
-const cssVars = {
-  mainColor: "#e01d3f",
-};
-
 const styles = StyleSheet.create({
   menuItem: {
-    textAlign: "right",
+    position: "absolute",
+    right: "1rem",
   },
-
   notifications: {
-    float: "right",
-    border: `3px dashed ${cssVars.mainColor}`,
-    padding: "10px",
-    marginBottom: "20px",
+    border: "2px dotted #e0354b",
+    padding: "1rem .5rem",
+    position: "absolute",
+    right: "1rem",
+    top: "2rem",
+    minwWdth: "33vw",
   },
-
-  notificationsButtonImage: {
-    width: "10px",
-  },
-
-  notificationsP: {
-    margin: 0,
-    marginTop: "15px",
+  closeBtn: {
+    position: "absolute",
+    right: 0,
+    background: "none",
+    border: "none",
+    fontWeight: "bold",
+    fontSize: "15pt",
+    marginTop: "-1rem",
+    cursor: "pointer",
   },
 });
 
