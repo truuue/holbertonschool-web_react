@@ -1,19 +1,26 @@
+/**
+ * Gets the year, using local time.
+ * @returns {number}
+ */
 export function getFullYear() {
   return new Date().getFullYear();
 }
 
+/**
+ * Get footer text
+ * @param {boolean} isIndex
+ * @returns {string}
+ */
 export function getFooterCopy(isIndex) {
-  let msg;
+  if (isIndex === true) return "Holberton School";
 
-  if (isIndex) {
-    msg = "Holberton School";
-  } else {
-    msg = "Holberton School main dashboard";
-  }
-
-  return msg;
+  return "Holberton School main";
 }
 
+/**
+ * Get latest notification HTML string
+ * @returns {string}
+ */
 export function getLatestNotification() {
   return "<strong>Urgent requirement</strong> - complete by EOD";
 }
