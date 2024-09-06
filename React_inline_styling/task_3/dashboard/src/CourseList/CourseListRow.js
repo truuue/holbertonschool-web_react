@@ -2,79 +2,57 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
 
-const rowStyles = { backgroundColor: "#f5f5f5ab" };
-const headerRowStyles = { backgroundColor: "#deb5b545" };
+class CourseListRow extends React.Component {
+  static propTypes = {
+    isHeader: PropTypes.bool,
+    textFirstCell: PropTypes.string.isRequired,
+    textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  };
 
-function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
-  let element;
+  static defaultProps = {
+    isHeader: false,
+    textSecondCell: null,
+  };
 
-  const tableItemStyle = css(
-    isHeader ? styles.CourseListTh : styles.CourseListTd
-  );
+  render() {
+    const { isHeader, textFirstCell, textSecondCell } = this.props;
+    const rowStyles = isHeader ? styles.rowHeader : styles.rowData;
 
-  if (isHeader === true) {
-    //
-    if (textSecondCell === null) {
-      element = (
-        <th colSpan="2" className={css(styles.CourseListThSpan2)}>
-          {textFirstCell}
-        </th>
-      );
-    } else {
-      element = (
-        <>
-          <th className={tableItemStyle}>{textFirstCell}</th>
-          <th className={tableItemStyle}>{textSecondCell}</th>
-        </>
-      );
-    }
-    //
-  } else if (isHeader === false) {
-    element = (
-      <>
-        <td className={tableItemStyle}>{textFirstCell}</td>
-        <td className={tableItemStyle}>{textSecondCell}</td>
-      </>
+    return (
+      <tr className={css(rowStyles)}>
+        {isHeader ? (
+          textSecondCell ? (
+            <>
+              <th>{textFirstCell}</th>
+              <th>{textSecondCell}</th>
+            </>
+          ) : (
+            <th colSpan="2" className={css(styles.headerWide)}>
+              {textFirstCell}
+            </th>
+          )
+        ) : (
+          <>
+            <td>{textFirstCell}</td>
+            <td>{textSecondCell}</td>
+          </>
+        )}
+      </tr>
     );
   }
-
-  let isHeaderStyle;
-
-  if (isHeader) isHeaderStyle = headerRowStyles;
-  else isHeaderStyle = rowStyles;
-
-  return <tr style={isHeaderStyle}>{element}</tr>;
 }
 
-CourseListRow.defaultProps = {
-  isHeader: false,
-  textSecondCell: null,
-};
-
-CourseListRow.propTypes = {
-  isHeader: PropTypes.bool,
-  textFirstCell: PropTypes.string.isRequired,
-  textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
-
-const cssVars = {
-  borderTableColor: "rgb(170, 170, 170);",
-};
-
 const styles = StyleSheet.create({
-  CourseListTh: {
-    borderTop: `1px solid ${cssVars.borderTableColor}`,
-    borderBottom: `1px solid ${cssVars.borderTableColor}`,
+  rowHeader: {
+    backgroundColor: "#deb5b545",
+    borderBottom: "2px solid lightgray",
     textAlign: "left",
-    fontSize: "18px",
   },
-
-  CourseListThSpan2: {
+  rowData: {
+    backgroundColor: "#f5f5f5ab",
+  },
+  headerWide: {
     textAlign: "center",
-  },
-
-  CourseListTd: {
-    textAlign: "left",
   },
 });
 
