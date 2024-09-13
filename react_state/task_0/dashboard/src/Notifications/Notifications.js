@@ -4,6 +4,7 @@ import NotificationItem from "./NotificationItem";
 import propTypes, { func } from "prop-types";
 import NotificationItemShape from "./NotificationItemShape";
 import { StyleSheet, css } from "aphrodite";
+import PropTypes from "prop-types";
 
 class Notifications extends React.Component {
   constructor(props) {
@@ -27,32 +28,21 @@ class Notifications extends React.Component {
     console.log("Close button has been clicked");
   };
   render() {
-    const { handleDisplayDrawer, handleHideDrawer } = this.props;
+    const { displayDrawer, handleDisplayDrawer, handleHideDrawer } = this.props;
 
     return (
-      <div className={css(styles.CompNotification)}>
-        <div className={css(styles.ParagraphemenuItem)}>
-          <p onClick={handleDisplayDrawer}>Your notifications</p>
+      <>
+        <div className="menuItem" onClick={handleDisplayDrawer}>
+          Your notifications
         </div>
-        {this.props.displayDrawer && (
-          <div className={css(styles.Notifications)}>
+        {displayDrawer && (
+          <div className="Notifications">
             <button
-              className={css(styles.ButtoncompNotification)}
+              style={{ float: "right" }}
+              aria-label="Close"
               onClick={handleHideDrawer}
-              aria-label="Dismiss"
-              style={{
-                cursor: "pointer",
-                backgroundColor: "transparent",
-                border: "none",
-                float: "right",
-              }}
             >
-              <img
-                className={css(styles.ImgagecompNotification)}
-                src={closeIcon}
-                alt="close"
-                width={10}
-              ></img>
+              <img src={closeIcon} alt="close-icon" />
             </button>
             <p>Here is the list of notifications</p>
             <ul className={css(styles.ul)}>
@@ -77,21 +67,19 @@ class Notifications extends React.Component {
             </ul>
           </div>
         )}
-      </div>
+      </>
     );
   }
 }
 
 Notifications.propTypes = {
-  displayDrawer: propTypes.bool,
-  listNotifications: propTypes.arrayOf(propTypes.shape(NotificationItemShape)),
-  handleDisplayDrawer: propTypes.func,
-  handleHideDrawer: propTypes.func,
+  displayDrawer: PropTypes.bool,
+  handleDisplayDrawer: PropTypes.func,
+  handleHideDrawer: PropTypes.func,
 };
 
 Notifications.defaultProps = {
   displayDrawer: false,
-  listNotifications: [],
   handleDisplayDrawer: () => {},
   handleHideDrawer: () => {},
 };

@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <>
         <Notifications
-          displayDrawer={displayDrawer}
+          displayDrawer={this.state.displayDrawer}
           handleDisplayDrawer={this.handleDisplayDrawer}
           handleHideDrawer={this.handleHideDrawer}
         />

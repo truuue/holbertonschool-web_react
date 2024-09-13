@@ -236,3 +236,23 @@ describe("<Notifications />", () => {
     );
   });
 });
+
+describe("<Notifications />", () => {
+  it("appelle handleDisplayDrawer quand on clique sur le menu", () => {
+    const handleDisplayDrawer = jest.fn();
+    const wrapper = shallow(
+      <Notifications handleDisplayDrawer={handleDisplayDrawer} />
+    );
+    wrapper.find(".menuItem").simulate("click");
+    expect(handleDisplayDrawer).toHaveBeenCalled();
+  });
+
+  it("appelle handleHideDrawer quand on clique sur le bouton de fermeture", () => {
+    const handleHideDrawer = jest.fn();
+    const wrapper = shallow(
+      <Notifications displayDrawer={true} handleHideDrawer={handleHideDrawer} />
+    );
+    wrapper.find("button").simulate("click");
+    expect(handleHideDrawer).toHaveBeenCalled();
+  });
+});
