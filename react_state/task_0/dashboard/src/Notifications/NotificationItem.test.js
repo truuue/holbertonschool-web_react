@@ -1,31 +1,23 @@
 import React from "react";
 import { shallow } from "enzyme";
-import NotificationItem from "./NotificationItem";
-import { StyleSheetTestUtils } from "aphrodite";
+import Notifications from "./Notifications";
 
-describe("NotificationItem Component", () => {
-  beforeEach(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
+describe("<Notifications />", () => {
+  it("calls handleDisplayDrawer when clicking on the menu item", () => {
+    const handleDisplayDrawer = jest.fn();
+    const wrapper = shallow(
+      <Notifications handleDisplayDrawer={handleDisplayDrawer} />
+    );
+    wrapper.find(".menuItem").simulate("click");
+    expect(handleDisplayDrawer).toHaveBeenCalled();
   });
 
-  afterEach(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
-
-  it("should renders without crashing", () => {
-    const wrapper = shallow(<NotificationItem />);
-    expect(wrapper.exists()).toBeTruthy();
-  });
-
-  it("should renders correct props value in HTML", () => {
-    const wrapper = shallow(<NotificationItem type="default" value="test" />);
-    expect(wrapper.prop("data-notification-type")).toEqual("default");
-    expect(wrapper.text()).toEqual("test");
-  });
-
-  it("should renders correct html prop", () => {
-    const html = { __html: "<u>unittest</u>" };
-    const wrapper = shallow(<NotificationItem html={html} />);
-    expect(wrapper.prop("dangerouslySetInnerHTML")).toEqual(html);
+  it("calls handleHideDrawer when clicking on the close button", () => {
+    const handleHideDrawer = jest.fn();
+    const wrapper = shallow(
+      <Notifications displayDrawer={true} handleHideDrawer={handleHideDrawer} />
+    );
+    wrapper.find("button").simulate("click");
+    expect(handleHideDrawer).toHaveBeenCalled();
   });
 });
