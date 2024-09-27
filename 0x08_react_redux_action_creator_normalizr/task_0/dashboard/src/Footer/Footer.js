@@ -1,7 +1,7 @@
-import React from 'react';
-import './Footer.css';
-import { getFullYear, getFooterCopy } from '../utils/utils';
-import { AppContext, userLogout } from '../App/AppContext';
+import React from "react";
+import "./Footer.css";
+import { getFullYear, getFooterCopy } from "../utils/utils";
+import { AppContext, userLogout } from "../App/AppContext";
 
 function Footer() {
   const isIndex = true;
@@ -11,7 +11,7 @@ function Footer() {
 
   return (
     <AppContext.Consumer>
-      {(props) => (
+      {props => (
         <footer className="App-footer">
           <p className="Copyright">
             Copyright {currentYear} - {footerText}

@@ -1,7 +1,7 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-import { useState } from 'react';
+import React from "react";
+import propTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
+import { useState } from "react";
 
 export function CourseListRow({
   isHeader = false,
@@ -21,7 +21,7 @@ export function CourseListRow({
   };
 
   const rowStyle = {
-    backgroundColor: isHeader ? '#deb5b545' : checked ? '#e6e4e4' : '#f5f5f5ab',
+    backgroundColor: isHeader ? "#deb5b545" : checked ? "#e6e4e4" : "#f5f5f5ab",
   };
 
   if (isHeader == true) {
@@ -56,11 +56,11 @@ export function CourseListRow({
 
 const styles = StyleSheet.create({
   th: {
-    borderBottom: '1px solid #dbdada',
+    borderBottom: "1px solid #dbdada",
   },
 
   hColSpan: {
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 

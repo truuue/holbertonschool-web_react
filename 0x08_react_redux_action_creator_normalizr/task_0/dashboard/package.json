@@ -48,6 +48,8 @@
       "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/config/fileMocks.js",
       "\\.(css|less)$": "identity-obj-proxy"
     },
-    "setupFilesAfterEnv": ["<rootDir>/config/setupTests.js"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/setupTests.js"
+    ]
   }
 }

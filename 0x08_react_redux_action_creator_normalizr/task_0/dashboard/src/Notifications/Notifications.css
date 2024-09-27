@@ -3,11 +3,11 @@
   padding: 1% 0% 0% 3%;
 }
 
-li[data-notification-type='default'] {
+li[data-notification-type="default"] {
   color: blue;
 }
 
-li[data-notification-type='urgent'] {
+li[data-notification-type="urgent"] {
   color: red;
 }
 

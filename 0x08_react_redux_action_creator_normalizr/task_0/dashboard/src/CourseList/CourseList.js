@@ -1,8 +1,8 @@
-import React from 'react';
-import CourseListRow from './CourseListRow';
-import CourseShape from './CourseShape';
-import propTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
+import React from "react";
+import CourseListRow from "./CourseListRow";
+import CourseShape from "./CourseShape";
+import propTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
 
 export function CourseList({ listCourses }) {
   CourseList.propTypes = {
@@ -25,7 +25,7 @@ export function CourseList({ listCourses }) {
       </thead>
       <tbody>
         {listCourses && listCourses.length !== 0 ? (
-          listCourses.map((course) => (
+          listCourses.map(course => (
             <CourseListRow
               key={course.id}
               isHeader={false}
@@ -46,12 +46,12 @@ export function CourseList({ listCourses }) {
 
 const styles = StyleSheet.create({
   CourseList: {
-    marginTop: '50px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: '90%',
-    textAlign: 'left',
-    border: '1px solid #dbdada',
+    marginTop: "50px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "90%",
+    textAlign: "left",
+    border: "1px solid #dbdada",
   },
 });
 

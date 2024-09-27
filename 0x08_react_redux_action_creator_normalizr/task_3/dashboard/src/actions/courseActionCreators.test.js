@@ -1,24 +1,20 @@
 import { selectCourse, unSelectCourse } from './courseActionCreators';
 import { SELECT_COURSE, UNSELECT_COURSE } from './courseActionTypes';
 
-describe('selectCourse', () => {
-  it('should return the correct action object', () => {
+describe('courseActionCreators', () => {
+  it('should create an action to select a course', () => {
     const expectedAction = {
       type: SELECT_COURSE,
       index: 1,
     };
-    const action = selectCourse(1);
-    expect(action).toEqual(expectedAction);
+    expect(selectCourse(1)).toEqual(expectedAction);
   });
-});
 
-describe('unSelectCourse', () => {
-  it('should return the correct action object', () => {
+  it('should create an action to unselect a course', () => {
     const expectedAction = {
       type: UNSELECT_COURSE,
       index: 1,
     };
-    const action = unSelectCourse(1);
-    expect(action).toEqual(expectedAction);
+    expect(unSelectCourse(1)).toEqual(expectedAction);
   });
 });

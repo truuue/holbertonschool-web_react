@@ -1,10 +1,10 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import BodySection from './BodySection';
-import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
-import { StyleSheetTestUtils } from 'aphrodite';
+import React from "react";
+import { shallow } from "enzyme";
+import BodySection from "./BodySection";
+import BodySectionWithMarginBottom from "./BodySectionWithMarginBottom";
+import { StyleSheetTestUtils } from "aphrodite";
 
-describe('BodySectionWithMarginBottom Component', function () {
+describe("BodySectionWithMarginBottom Component", function () {
   beforeEach(() => {
     StyleSheetTestUtils.suppressStyleInjection();
   });
@@ -13,9 +13,9 @@ describe('BodySectionWithMarginBottom Component', function () {
     StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
   });
 
-  it('renders BodySection component and passes props correctly', () => {
-    const title = 'test title';
-    const childrenText = 'test children node';
+  it("renders BodySection component and passes props correctly", () => {
+    const title = "test title";
+    const childrenText = "test children node";
     const wrapper = shallow(
       <BodySectionWithMarginBottom title={title}>
         <p>{childrenText}</p>

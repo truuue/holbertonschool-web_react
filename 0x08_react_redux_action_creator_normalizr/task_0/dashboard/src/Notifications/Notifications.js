@@ -1,9 +1,9 @@
-import React from 'react';
-import closeIcon from '../assets/close-icon.png';
-import NotificationItem from './NotificationItem';
-import propTypes, { func } from 'prop-types';
-import NotificationItemShape from './NotificationItemShape';
-import { StyleSheet, css } from 'aphrodite';
+import React from "react";
+import closeIcon from "../assets/close-icon.png";
+import NotificationItem from "./NotificationItem";
+import propTypes, { func } from "prop-types";
+import NotificationItemShape from "./NotificationItemShape";
+import { StyleSheet, css } from "aphrodite";
 
 class Notifications extends React.PureComponent {
   constructor(props) {
@@ -11,7 +11,7 @@ class Notifications extends React.PureComponent {
     this.closeClick = this.closeClick;
   }
   closeClick = () => {
-    console.log('Close button has been clicked');
+    console.log("Close button has been clicked");
   };
   render() {
     const { handleDisplayDrawer, handleHideDrawer } = this.props;
@@ -29,10 +29,10 @@ class Notifications extends React.PureComponent {
               onClick={handleHideDrawer}
               aria-label="Dismiss"
               style={{
-                cursor: 'pointer',
-                backgroundColor: 'transparent',
-                border: 'none',
-                float: 'right',
+                cursor: "pointer",
+                backgroundColor: "transparent",
+                border: "none",
+                float: "right",
               }}
             >
               <img
@@ -46,7 +46,7 @@ class Notifications extends React.PureComponent {
             <ul className={css(styles.ul)}>
               {this.props.listNotifications &&
               this.props.listNotifications.length !== 0 ? (
-                this.props.listNotifications.map((notification) => (
+                this.props.listNotifications.map(notification => (
                   <NotificationItem
                     key={notification.id}
                     type={notification.type}
@@ -85,81 +85,81 @@ Notifications.defaultProps = {
 };
 
 const opacityAnimation = {
-  '50%': {
+  "50%": {
     opacity: 0.5,
   },
-  '100%': {
+  "100%": {
     opacity: 1,
   },
 };
 
 const bounceAnimation = {
-  '0%, 100%': {
-    transform: 'translateY(0px)',
+  "0%, 100%": {
+    transform: "translateY(0px)",
   },
-  '50%': {
-    transform: 'translateY(-5px)',
+  "50%": {
+    transform: "translateY(-5px)",
   },
 };
 
 const styles = StyleSheet.create({
   Notifications: {
-    border: 'dotted 2px #E0354B',
-    padding: '1% 0% 0% 3%',
-    ':hover': {
-      backgroundColor: '#fff8f8',
-      cursor: 'pointer',
+    border: "dotted 2px #E0354B",
+    padding: "1% 0% 0% 3%",
+    ":hover": {
+      backgroundColor: "#fff8f8",
+      cursor: "pointer",
     },
-    '@media (max-width: 600px)': {
-      position: 'fixed',
+    "@media (max-width: 600px)": {
+      position: "fixed",
       top: 0,
       left: 0,
-      width: '100%',
-      height: '100vh',
-      backgroundColor: 'white',
-      border: 'none',
+      width: "100%",
+      height: "100vh",
+      backgroundColor: "white",
+      border: "none",
       padding: 0,
     },
   },
   liUrgent: {
-    color: 'red',
+    color: "red",
   },
   liDefault: {
-    color: 'blue',
+    color: "blue",
   },
 
   CompNotification: {
-    position: 'absolute',
-    top: '0',
-    right: '0',
-    marginRight: '20px',
-    width: '380px',
+    position: "absolute",
+    top: "0",
+    right: "0",
+    marginRight: "20px",
+    width: "380px",
   },
 
   ParagraphemenuItem: {
-    marginBottom: '5px',
-    textAlign: 'right',
-    ':hover': {
+    marginBottom: "5px",
+    textAlign: "right",
+    ":hover": {
       animationName: [bounceAnimation, opacityAnimation],
-      animationDuration: '0.5s',
-      animationIterationCount: '3',
-      cursor: 'pointer',
+      animationDuration: "0.5s",
+      animationIterationCount: "3",
+      cursor: "pointer",
     },
   },
 
   ImgagecompNotification: {
-    height: '8px',
-    width: 'auto',
+    height: "8px",
+    width: "auto",
   },
 
   ButtoncompNotification: {
-    padding: '0',
-    marginRight: '3%',
-    marginTop: '1%',
+    padding: "0",
+    marginRight: "3%",
+    marginTop: "1%",
   },
 
   ul: {
-    '@media (max-width: 600px)': {
+    "@media (max-width: 600px)": {
       padding: 0,
     },
   },

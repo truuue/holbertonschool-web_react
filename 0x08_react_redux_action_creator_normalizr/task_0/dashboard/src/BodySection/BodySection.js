@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
 
 class BodySection extends React.Component {
   constructor(props) {
@@ -25,11 +25,11 @@ BodySection.propTypes = {
 
 const styles = StyleSheet.create({
   bodySection: {
-    marginBottom: '40px',
-    '@media (max-width: 600px)': {
-      paddingLeft: '10%',
-      paddingRight: '10%',
-      paddingTop: '10%',
+    marginBottom: "40px",
+    "@media (max-width: 600px)": {
+      paddingLeft: "10%",
+      paddingRight: "10%",
+      paddingTop: "10%",
     },
   },
 });

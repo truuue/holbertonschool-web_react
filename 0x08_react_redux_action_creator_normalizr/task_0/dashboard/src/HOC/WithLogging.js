@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 function WithLogging(WrappedComponent) {
   class WithLoggingComponent extends React.Component {
     getComponentName() {
       const wrappedComponent =
-        WrappedComponent.displayName || WrappedComponent.name || 'Component';
+        WrappedComponent.displayName || WrappedComponent.name || "Component";
       return wrappedComponent;
     }
 

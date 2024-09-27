@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { css } from 'aphrodite';
-import { StyleSheet } from 'aphrodite';
+import React from "react";
+import PropTypes from "prop-types";
+import { css } from "aphrodite";
+import { StyleSheet } from "aphrodite";
 
 function NotificationItem({ type, html, value, markAsRead, id }) {
   return (
     <li
       className={css(
         styles.notifications,
-        type === 'default' && styles.liDefault,
-        type === 'urgent' && styles.liUrgent,
+        type === "default" && styles.liDefault,
+        type === "urgent" && styles.liUrgent,
         styles.listItem
       )}
       onClick={() => markAsRead(id)}
@@ -37,17 +37,17 @@ NotificationItem.defaultProps = {
 
 const styles = StyleSheet.create({
   liUrgent: {
-    color: 'red',
+    color: "red",
   },
   liDefault: {
-    color: 'blue',
+    color: "blue",
   },
   listItem: {
-    '@media (max-width: 600px)': {
-      borderBottom: '1px solid black',
-      padding: '10px 8px',
-      fontSize: '20px',
-      listStyleType: 'none',
+    "@media (max-width: 600px)": {
+      borderBottom: "1px solid black",
+      padding: "10px 8px",
+      fontSize: "20px",
+      listStyleType: "none",
     },
   },
 });

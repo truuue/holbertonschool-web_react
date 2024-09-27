@@ -1,18 +1,26 @@
-import { getAllNotificationsByUser } from './notifications';
-const dataNotif = require('../../../../notification.json');
+import { getAllNotificationsByUser } from "./notifications";
 
-describe('getAllNotificationsByUser', () => {
-  it('should return notifications for a specific user when multiple users exist', () => {
-    const userId = '5debd764a7c57c7839d722e9';
+describe("getAllNotificationsByUser", () => {
+  it("should return correct notifications for user 5debd764a7c57c7839d722e9", () => {
+    const userId = "5debd764a7c57c7839d722e9";
+    const expectedNotifications = [
+      {
+        guid: "2d8e40be-1c78-4de0-afc9-fcc147afd4d2",
+        isRead: true,
+        type: "urgent",
+        value:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+      },
+      {
+        guid: "280913fe-38dd-4abd-8ab6-acdb4105f922",
+        isRead: false,
+        type: "urgent",
+        value:
+          "Non diam phasellus vestibulum lorem sed risus ultricies. Tellus mauris a diam maecenas sed",
+      },
+    ];
 
-    const userContext = [];
-    for (let i = 0; i < dataNotif.length; i++) {
-      const json = dataNotif[i];
-      if (userId === json.author.id) {
-        userContext = json.context;
-      }
-    }
     const result = getAllNotificationsByUser(userId);
-    expect(result).toEqual(expect.arrayContaining(userContext));
+    expect(result).toEqual(expect.arrayContaining(expectedNotifications));
   });
 });

@@ -1,14 +1,14 @@
-import React from 'react';
-import Notifications from '../Notifications/Notifications';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import Login from '../Login/Login';
-import CourseList from '../CourseList/CourseList';
-import { getLatestNotification } from '../utils/utils';
-import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
-import BodySection from '../BodySection/BodySection';
-import { StyleSheet, css } from 'aphrodite';
-import { AppContext, userLogout, logoutUser } from './AppContext';
+import React from "react";
+import Notifications from "../Notifications/Notifications";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import Login from "../Login/Login";
+import CourseList from "../CourseList/CourseList";
+import { getLatestNotification } from "../utils/utils";
+import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
+import BodySection from "../BodySection/BodySection";
+import { StyleSheet, css } from "aphrodite";
+import { AppContext, userLogout, logoutUser } from "./AppContext";
 
 class App extends React.Component {
   constructor(props) {
@@ -17,9 +17,9 @@ class App extends React.Component {
       displayDrawer: false,
       user: userLogout,
       listNotifications: [
-        { id: 1, type: 'default', value: 'New course available' },
-        { id: 2, type: 'urgent', value: 'New resume available' },
-        { id: 3, type: 'urgent', html: { __html: getLatestNotification() } },
+        { id: 1, type: "default", value: "New course available" },
+        { id: 2, type: "urgent", value: "New resume available" },
+        { id: 3, type: "urgent", html: { __html: getLatestNotification() } },
       ],
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -38,18 +38,18 @@ class App extends React.Component {
   }
 
   handleKeyDown(event) {
-    if (event.key === 'h' && event.ctrlKey) {
-      alert('Logging you out');
+    if (event.key === "h" && event.ctrlKey) {
+      alert("Logging you out");
       this.props.logOut();
     }
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener("keydown", this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
+    document.removeEventListener("keydown", this.handleKeyDown);
   }
 
   handleLogIn(email, password) {
@@ -70,7 +70,7 @@ class App extends React.Component {
 
   markNotificationAsRead(id) {
     const updatedNotifications = this.state.listNotifications.filter(
-      (notification) => notification.id !== id
+      notification => notification.id !== id
     );
     this.setState({ listNotifications: updatedNotifications });
   }
@@ -80,9 +80,9 @@ class App extends React.Component {
     const { isLoggedIn } = user;
 
     const listCourses = [
-      { id: 1, name: 'ES6', credit: 60 },
-      { id: 2, name: 'Webpack', credit: 20 },
-      { id: 3, name: 'React', credit: 40 },
+      { id: 1, name: "ES6", credit: 60 },
+      { id: 2, name: "Webpack", credit: 20 },
+      { id: 3, name: "React", credit: 40 },
     ];
 
     return (
@@ -131,12 +131,12 @@ class App extends React.Component {
 
 const styles = StyleSheet.create({
   app: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   appFooter: {
-    borderTop: '#E0354B solid 3px',
-    textAlign: 'center',
-    fontStyle: 'italic',
+    borderTop: "#E0354B solid 3px",
+    textAlign: "center",
+    fontStyle: "italic",
   },
 });
 
